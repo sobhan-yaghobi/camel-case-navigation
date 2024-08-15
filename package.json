@@ -2,22 +2,53 @@
   "name": "camel-case-navigation",
   "displayName": "Camel Case Navigation",
   "description": "A VSCode extension to navigate camelCase words using keyboard shortcuts",
-  "version": "0.0.1",
+  "version": "0.0.11",
   "engines": {
     "vscode": "^1.92.0"
   },
   "categories": [
     "Other"
   ],
-  "activationEvents": [],
+  "activationEvents": [
+    "onCommand:extension.moveCamelCaseLeft",
+    "onCommand:extension.moveCamelCaseRight",
+    "onCommand:extension.selectCamelCaseLeft",
+    "onCommand:extension.selectCamelCaseRight",
+    "onCommand:extension.deleteCamelCaseLeft"
+  ],
   "main": "./dist/extension.js",
   "contributes": {
-    "commands": [
+    "keybindings": [
       {
-        "command": "camel-case-navigation.helloWorld",
-        "title": "Hello World"
+        "command": "extension.moveCamelCaseLeft",
+        "key": "ctrl+left",
+        "when": "editorTextFocus"
+      },
+      {
+        "command": "extension.moveCamelCaseRight",
+        "key": "ctrl+right",
+        "when": "editorTextFocus"
+      },
+      {
+        "command": "extension.selectCamelCaseLeft",
+        "key": "ctrl+shift+left",
+        "when": "editorTextFocus"
+      },
+      {
+        "command": "extension.selectCamelCaseRight",
+        "key": "ctrl+shift+right",
+        "when": "editorTextFocus"
+      },
+      {
+        "command": "extension.deleteCamelCaseLeft",
+        "key": "ctrl+backspace",
+        "when": "editorTextFocus"
       }
     ]
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/your-username/your-repo-name"
   },
   "scripts": {
     "vscode:prepublish": "npm run package",
@@ -31,7 +62,8 @@
     "pretest": "npm run compile-tests && npm run compile && npm run lint",
     "check-types": "tsc --noEmit",
     "lint": "eslint src --ext ts",
-    "test": "vscode-test"
+    "test": "vscode-test",
+    "build": "esbuild src/extension.ts --bundle --outdir=out --external:vscode"
   },
   "devDependencies": {
     "@types/vscode": "^1.92.0",

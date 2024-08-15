@@ -1,71 +1,54 @@
-# camel-case-navigation README
+# Camel Case Navigation
 
-This is the README for your extension "camel-case-navigation". After writing up a brief description, we recommend including the following sections.
+<!-- ![Logo](images/logo.png) -->
 
-## Features
+## Overview
 
-Describe specific features of your extension including screenshots of your extension in action. Image paths are relative to this README file.
+**Camel Case Navigation** is a VSCode extension designed to help developers navigate and select camelCase words efficiently using keyboard shortcuts. This extension is perfect for those who work extensively with camelCase naming conventions in their code.
 
-For example if there is an image subfolder under your extension project workspace:
+## FeaturesFfsdsd
 
-\!\[feature X\]\(images/feature-x.png\)
+- **Navigate between camelCase words**: Quickly jump between parts of camelCase words using `Ctrl + Alt + Left Arrow` and `Ctrl + Alt + Right Arrow`.
+- **Select camelCase words**: Easily select parts of camelCase words with `Ctrl + Shift + Left Arrow` and `Ctrl + Shift + Right Arrow`.
 
-> Tip: Many popular extensions utilize animations. This is an excellent way to show off your extension! We recommend short, focused animations that are easy to follow.
+## Installation
 
-## Requirements
+You can install this extension directly from the [Visual Studio Code Marketplace](https://marketplace.visualstudio.com/) or by downloading the `.vsix` file and installing it manually.
 
-If you have any requirements or dependencies, add a section describing those and how to install and configure them.
+### Manual Installation
 
-## Extension Settings
+1. Download the latest `.vsix` file from the [Releases](https://github.com/your-repo-name/releases) page.
+2. Open Visual Studio Code.
+3. Go to the Extensions view by clicking on the Extensions icon in the Activity Bar on the side of the window or pressing `Ctrl+Shift+X`.
+4. Click on the `...` menu in the Extensions view and select `Install from VSIX...`.
+5. Select the downloaded `.vsix` file to install the extension.
 
-Include if your extension adds any VS Code settings through the `contributes.configuration` extension point.
+## Usage
 
-For example:
+### Keyboard Shortcuts
 
-This extension contributes the following settings:
+- **Navigate Left**: `Ctrl + Alt + Left Arrow`
+- **Navigate Right**: `Ctrl + Alt + Right Arrow`
+- **Select Left**: `Ctrl + Shift + Left Arrow`
+- **Select Right**: `Ctrl + Shift + Right Arrow`
 
-* `myExtension.enable`: Enable/disable this extension.
-* `myExtension.thing`: Set to `blah` to do something.
+These shortcuts allow you to quickly move or select the camelCase segments within your code.
 
-## Known Issues
+### Example
 
-Calling out known issues can help limit users opening duplicate issues against your extension.
+Given the word `thisIsAnExample`:
 
-## Release Notes
+- Pressing `Ctrl + Alt + Left Arrow` or `Ctrl + Alt + Right Arrow` will move the cursor between `this`, `Is`, `An`, and `Example`.
+- Pressing `Ctrl + Shift + Left Arrow` or `Ctrl + Shift + Right Arrow` will select segments of the word.
 
-Users appreciate release notes as you update your extension.
+## Contributing
 
-### 1.0.0
+Contributions are welcome! If you have any suggestions or find a bug, please open an issue or submit a pull request on [GitHub](https://github.com/your-repo-name).
 
-Initial release of ...
+## License
 
-### 1.0.1
-
-Fixed issue #.
-
-### 1.1.0
-
-Added features X, Y, and Z.
+This extension is licensed under the MIT License. See the [LICENSE](LICENSE) file for more details.
 
 ---
 
-## Following extension guidelines
-
-Ensure that you've read through the extensions guidelines and follow the best practices for creating your extension.
-
-* [Extension Guidelines](https://code.visualstudio.com/api/references/extension-guidelines)
-
-## Working with Markdown
-
-You can author your README using Visual Studio Code. Here are some useful editor keyboard shortcuts:
-
-* Split the editor (`Cmd+\` on macOS or `Ctrl+\` on Windows and Linux).
-* Toggle preview (`Shift+Cmd+V` on macOS or `Shift+Ctrl+V` on Windows and Linux).
-* Press `Ctrl+Space` (Windows, Linux, macOS) to see a list of Markdown snippets.
-
-## For more information
-
-* [Visual Studio Code's Markdown Support](http://code.visualstudio.com/docs/languages/markdown)
-* [Markdown Syntax Reference](https://help.github.com/articles/markdown-basics/)
-
-**Enjoy!**
+**Happy Coding!**
