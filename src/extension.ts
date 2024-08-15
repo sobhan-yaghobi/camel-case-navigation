@@ -1,112 +1,104 @@
 import * as vscode from "vscode"
 
-function moveCamelCaseLeft() {
-  const editor = vscode.window.activeTextEditor
-  if (editor) {
-    const document = editor.document
-    const position = editor.selection.active
-
-    const textBeforeCursor = document.getText(
-      new vscode.Range(position.with(undefined, 0), position)
-    )
-    const match = textBeforeCursor.match(/([A-Z][a-z]*)$/)
-
-    if (match) {
-      const newPosition = position.with(undefined, position.character - match[0].length)
-      editor.selection = new vscode.Selection(newPosition, newPosition)
-    } else {
-      vscode.commands.executeCommand("cursorWordLeft")
-    }
-  }
-}
-
 function moveCamelCaseRight() {
   const editor = vscode.window.activeTextEditor
-  if (editor) {
-    const document = editor.document
-    const position = editor.selection.active
+  if (!editor) return
 
-    const textAfterCursor = document.getText(
-      new vscode.Range(
-        position,
-        position.with(undefined, document.lineAt(position.line).text.length)
-      )
-    )
-    const match = textAfterCursor.match(/^[a-z]*[A-Z]/)
+  const document = editor.document
+  const position = editor.selection.active
+  const lineText = document.lineAt(position.line).text
+  const textAfterCursor = lineText.slice(position.character)
 
-    if (match) {
-      const newPosition = position.translate(0, match[0].length)
-      editor.selection = new vscode.Selection(newPosition, newPosition)
-    } else {
-      vscode.commands.executeCommand("cursorWordRight")
-    }
+  // Find the next camelCase boundary (Uppercase or the start of the next word)
+  const match = textAfterCursor.match(/([A-Z][a-z]*)|([a-z]+(?=[A-Z]))/)
+
+  if (match && match.index !== undefined) {
+    const newPosition = position.translate(0, match.index + match[0].length)
+    editor.selection = new vscode.Selection(newPosition, newPosition)
+  } else {
+    const endOfLine = document.lineAt(position.line).range.end
+    editor.selection = new vscode.Selection(endOfLine, endOfLine)
   }
 }
 
-function selectCamelCaseLeft() {
+function moveCamelCaseLeft() {
   const editor = vscode.window.activeTextEditor
-  if (editor) {
-    const document = editor.document
-    const selection = editor.selection
-    const position = selection.active
+  if (!editor) return
 
-    const textBeforeCursor = document.getText(
-      new vscode.Range(position.with(undefined, 0), position)
-    )
-    const match = textBeforeCursor.match(/([A-Z][a-z]*)$/)
+  const document = editor.document
+  const position = editor.selection.active
+  const lineText = document.lineAt(position.line).text
+  const textBeforeCursor = lineText.slice(0, position.character)
 
-    if (match) {
-      const newPosition = position.with(undefined, position.character - match[0].length)
-      editor.selection = new vscode.Selection(selection.anchor, newPosition)
-    } else {
-      vscode.commands.executeCommand("cursorWordLeftSelect")
-    }
+  // Find the previous camelCase boundary (Uppercase or the end of the previous word)
+  const match = [...textBeforeCursor.matchAll(/([A-Z][a-z]*)|([a-z]+(?=[A-Z]))/g)].pop()
+
+  if (match && match.index !== undefined) {
+    const newPosition = position.with(position.line, match.index)
+    editor.selection = new vscode.Selection(newPosition, newPosition)
+  } else {
+    vscode.commands.executeCommand("cursorWordLeft")
   }
 }
 
 function selectCamelCaseRight() {
   const editor = vscode.window.activeTextEditor
-  if (editor) {
-    const document = editor.document
-    const selection = editor.selection
-    const position = selection.active
+  if (!editor) return
 
-    const textAfterCursor = document.getText(
-      new vscode.Range(
-        position,
-        position.with(undefined, document.lineAt(position.line).text.length)
-      )
-    )
-    const match = textAfterCursor.match(/^[a-z]*[A-Z]/)
+  const document = editor.document
+  const selection = editor.selection
+  const position = selection.active
+  const lineText = document.lineAt(position.line).text
+  const textAfterCursor = lineText.slice(position.character)
 
-    if (match) {
-      const newPosition = position.translate(0, match[0].length)
-      editor.selection = new vscode.Selection(selection.anchor, newPosition)
-    } else {
-      vscode.commands.executeCommand("cursorWordRightSelect")
-    }
+  const match = textAfterCursor.match(/([A-Z][a-z]*)|([a-z]+(?=[A-Z]))/)
+
+  if (match && match.index !== undefined) {
+    const newPosition = position.translate(0, match.index + match[0].length)
+    editor.selection = new vscode.Selection(selection.anchor, newPosition)
+  } else {
+    const endOfLine = document.lineAt(position.line).range.end
+    editor.selection = new vscode.Selection(selection.anchor, endOfLine)
   }
 }
 
+function selectCamelCaseLeft() {
+  const editor = vscode.window.activeTextEditor
+  if (!editor) return
+
+  const document = editor.document
+  const selection = editor.selection
+  const position = selection.active
+  const lineText = document.lineAt(position.line).text
+  const textBeforeCursor = lineText.slice(0, position.character)
+
+  const match = [...textBeforeCursor.matchAll(/([A-Z][a-z]*)|([a-z]+(?=[A-Z]))/g)].pop()
+
+  if (match && match.index !== undefined) {
+    const newPosition = position.with(position.line, match.index)
+    editor.selection = new vscode.Selection(selection.anchor, newPosition)
+  } else {
+    vscode.commands.executeCommand("cursorWordLeftSelect")
+  }
+}
 function deleteCamelCaseLeft() {
   const editor = vscode.window.activeTextEditor
-  if (editor) {
-    const document = editor.document
-    const position = editor.selection.active
+  if (!editor) return
 
-    const textBeforeCursor = document.getText(
-      new vscode.Range(position.with(undefined, 0), position)
-    )
-    const match = textBeforeCursor.match(/([A-Z][a-z]*)$/)
+  const document = editor.document
+  const position = editor.selection.active
+  const lineText = document.lineAt(position.line).text
+  const textBeforeCursor = lineText.slice(0, position.character)
 
-    if (match) {
-      const newPosition = position.with(undefined, position.character - match[0].length)
-      editor.edit((editBuilder) => {
-        editBuilder.delete(new vscode.Range(newPosition, position))
-      })
-    } else {
-      vscode.commands.executeCommand("deleteWordLeft")
-    }
+  const match = [...textBeforeCursor.matchAll(/([A-Z][a-z]*)|([a-z]+(?=[A-Z]))/g)].pop()
+
+  if (match && match.index !== undefined) {
+    const newPosition = position.with(position.line, match.index)
+    editor.edit((editBuilder) => {
+      editBuilder.delete(new vscode.Range(newPosition, position))
+    })
+  } else {
+    vscode.commands.executeCommand("deleteWordLeft")
   }
 }
 
