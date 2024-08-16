@@ -3,7 +3,7 @@
   "displayName": "camelCase Navigator",
   "description": "A VSCode extension to navigate camelCase words using keyboard shortcuts",
   "icon": "public/logo.jpg",
-  "publisher": "sobhanYaghobi.camelCaseNavigator",
+  "publisher": "sobhanYaghobi",
   "version": "0.0.46",
   "engines": {
     "vscode": "^1.92.0"
