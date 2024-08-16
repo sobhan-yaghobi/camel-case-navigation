@@ -6,10 +6,14 @@
 
 **Camel Case Navigation** is a VSCode extension designed to help developers navigate and select camelCase words efficiently using keyboard shortcuts. This extension is perfect for those who work extensively with camelCase naming conventions in their code.
 
-## FeaturesFfsdsd
+## Features
 
-- **Navigate between camelCase words**: Quickly jump between parts of camelCase words using `Ctrl + Alt + Left Arrow` and `Ctrl + Alt + Right Arrow`.
-- **Select camelCase words**: Easily select parts of camelCase words with `Ctrl + Shift + Left Arrow` and `Ctrl + Shift + Right Arrow`.
+- **Navigate between camelCase words**: Quickly jump between parts of camelCase words using `Alt + Left Arrow` and `Alt + Right Arrow`.
+- **Select camelCase words**: Easily select parts of camelCase words with `Alt + Shift + Left Arrow` and `Alt + Shift + Right Arrow` , and also remove the words with `Alt + Backspace`.
+
+- also you can copy and test the functionality of extension
+
+<b>ThisIsATextWithMixedCamelCaseWordsToTestYourExtensionFunctionalitySuchAsHelloWorldMyVariableNameIsExampleTestCaseAndAnotherOneIsCamelCaseNavigationTool</b>
 
 ## Installation
 

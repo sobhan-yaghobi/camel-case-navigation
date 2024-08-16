@@ -2,7 +2,7 @@
   "name": "camel-case-navigation",
   "displayName": "Camel Case Navigation",
   "description": "A VSCode extension to navigate camelCase words using keyboard shortcuts",
-  "version": "0.0.13",
+  "version": "0.0.43",
   "engines": {
     "vscode": "^1.92.0"
   },
@@ -21,27 +21,27 @@
     "keybindings": [
       {
         "command": "extension.moveCamelCaseLeft",
-        "key": "ctrl+left",
+        "key": "alt+left",
         "when": "editorTextFocus"
       },
       {
         "command": "extension.moveCamelCaseRight",
-        "key": "ctrl+right",
+        "key": "alt+right",
         "when": "editorTextFocus"
       },
       {
         "command": "extension.selectCamelCaseLeft",
-        "key": "ctrl+shift+left",
+        "key": "alt+shift+left",
         "when": "editorTextFocus"
       },
       {
         "command": "extension.selectCamelCaseRight",
-        "key": "ctrl+shift+right",
+        "key": "alt+shift+right",
         "when": "editorTextFocus"
       },
       {
         "command": "extension.deleteCamelCaseLeft",
-        "key": "ctrl+backspace",
+        "key": "alt+backspace",
         "when": "editorTextFocus"
       }
     ]
