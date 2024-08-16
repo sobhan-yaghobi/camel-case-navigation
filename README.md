@@ -9,11 +9,8 @@
 ## Features
 
 - **Navigate between camelCase words**: Quickly jump between parts of camelCase words using `Alt + Left Arrow` and `Alt + Right Arrow`.
-- **Select camelCase words**: Easily select parts of camelCase words with `Alt + Shift + Left Arrow` and `Alt + Shift + Right Arrow` , and also remove the words with `Alt + Backspace`.
-
-- also you can copy and test the functionality of extension
-
-<b>ThisIsATextWithMixedCamelCaseWordsToTestYourExtensionFunctionalitySuchAsHelloWorldMyVariableNameIsExampleTestCaseAndAnotherOneIsCamelCaseNavigationTool</b>
+- **Select camelCase words**: Easily select parts of camelCase words with `Alt + Shift + Left Arrow` and `Alt + Shift + Right Arrow`.
+- **Remove camelCase words**: Easily remove parts of camelCase words with `Alt + Backspace`.
 
 ## Installation
 
@@ -31,10 +28,11 @@ You can install this extension directly from the [Visual Studio Code Marketplace
 
 ### Keyboard Shortcuts
 
-- **Navigate Left**: `Ctrl + Alt + Left Arrow`
-- **Navigate Right**: `Ctrl + Alt + Right Arrow`
-- **Select Left**: `Ctrl + Shift + Left Arrow`
-- **Select Right**: `Ctrl + Shift + Right Arrow`
+- **Navigate Left**: `Alt + Left Arrow`
+- **Navigate Right**: `Alt + Right Arrow`
+- **Select Left**: `Alt + Shift + Left Arrow`
+- **Select Right**: `Alt + Shift + Right Arrow`
+- **Backspace**: `Alt + Backspace`
 
 These shortcuts allow you to quickly move or select the camelCase segments within your code.
 
@@ -42,12 +40,13 @@ These shortcuts allow you to quickly move or select the camelCase segments withi
 
 Given the word `thisIsAnExample`:
 
-- Pressing `Ctrl + Alt + Left Arrow` or `Ctrl + Alt + Right Arrow` will move the cursor between `this`, `Is`, `An`, and `Example`.
-- Pressing `Ctrl + Shift + Left Arrow` or `Ctrl + Shift + Right Arrow` will select segments of the word.
+- Pressing `Alt + Left Arrow` or `Alt + Right Arrow` will move the cursor between `this`, `Is`, `An`, and `Example`.
+- Pressing `Shift + Left Arrow` or `Shift + Right Arrow` will select segments of the word.
+- Pressing `Alt + Backspace` will remove word.
 
 ## Contributing
 
-Contributions are welcome! If you have any suggestions or find a bug, please open an issue or submit a pull request on [GitHub](https://github.com/your-repo-name).
+Contributions are welcome! If you have any suggestions or find a bug, please open an issue or submit a pull request on [GitHub](https://github.com/sobhan-yaghobi/camel-case-navigation).
 
 ## License
 
