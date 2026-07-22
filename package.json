@@ -4,7 +4,7 @@
   "description": "A VSCode extension to navigate camelCase words using keyboard shortcuts",
   "icon": "public/logo.jpg",
   "publisher": "sobhanYaghobi",
-  "version": "0.0.46",
+  "version": "0.0.47",
   "engines": {
     "vscode": "^1.92.0"
   },
